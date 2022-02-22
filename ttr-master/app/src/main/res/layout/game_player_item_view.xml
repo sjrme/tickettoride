@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="95dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/customborder"
+    android:paddingRight="3dp"
+    android:paddingLeft="3dp"
+    android:layout_centerHorizontal="true"
+    android:gravity="center"
+    android:id="@+id/playerView">
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="13dp"
+        android:textSize="12sp"
+        android:gravity="center|top"
+        android:text="@string/sample_name"
+        android:maxLines="1"
+        android:ellipsize="end"/>
+
+    <RelativeLayout
+        android:id="@+id/trains"
+        android:layout_width="45dp"
+        android:layout_height="14dp"
+        android:layout_below="@id/username">
+
+        <ImageView
+            android:id="@+id/trainsTag"
+            android:contentDescription="@string/train_image_description"
+            android:layout_width="25dp"
+            android:gravity="start"
+            android:layout_height="match_parent"
+            android:src="@drawable/train"
+            />
+
+        <TextView
+            android:id="@+id/trainsNum"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            android:textColor="@color/gold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_toRightOf="@id/trainsTag"
+            android:layout_toEndOf="@id/trainsTag"
+            android:text="@string/sample_number"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/card"
+        android:layout_width="45dp"
+        android:layout_height="14dp"
+        android:layout_below="@id/username"
+        android:layout_toRightOf="@id/trains"
+        android:layout_toEndOf="@id/trains">
+
+        <ImageView
+            android:id="@+id/cardsTag"
+            android:contentDescription="@string/train_card_image_description"
+            android:layout_width="25dp"
+            android:gravity="start"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            android:textColor="@color/gold"
+            android:src="@drawable/traincardbacksmall"/>
+
+        <TextView
+            android:id="@+id/cardsNum"
+            android:layout_width="20dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            android:textColor="@color/gold"
+            android:text="@string/sample_number"
+            android:layout_toRightOf="@id/cardsTag"
+            android:layout_toEndOf="@id/cardsTag"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/numRoutes"
+        android:layout_width="45dp"
+        android:layout_height="14dp"
+        android:layout_below="@id/trains">
+
+        <ImageView
+            android:id="@+id/routesTag"
+            android:contentDescription="@string/route_image_description"
+            android:layout_width="25dp"
+            android:gravity="start"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            android:src="@drawable/route"/>
+
+        <TextView
+            android:id="@+id/routesNum"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            android:textColor="@color/gold"
+            android:text="@string/sample_number"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_toRightOf="@id/routesTag"
+            android:layout_toEndOf="@id/routesTag"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/dcard"
+        android:layout_width="45dp"
+        android:layout_height="14dp"
+        android:layout_toRightOf="@id/numRoutes"
+        android:layout_toEndOf="@id/numRoutes"
+        android:layout_below="@id/card">
+        
+        <ImageView
+            android:id="@+id/dcardsTag"
+            android:contentDescription="@string/dest_card_image_description"
+            android:layout_width="25dp"
+            android:gravity="start"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            android:src="@drawable/destcardbacksmall"/>
+
+        <TextView
+            android:id="@+id/dcardsNum"
+            android:layout_width="20dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            android:textColor="@color/gold"
+            android:text="@string/sample_number"
+            android:layout_toRightOf="@id/dcardsTag"
+            android:layout_toEndOf="@id/dcardsTag"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/points"
+        android:layout_width="match_parent"
+        android:layout_height="14dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/numRoutes">
+
+        <TextView
+            android:id="@+id/scoreTag"
+            android:text="@string/score"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            android:textColor="@color/gold"/>
+
+        <TextView
+            android:id="@+id/scoreNum"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/gold"
+            android:text="@string/sample_number"
+            android:layout_toRightOf="@id/scoreTag"
+            android:layout_toEndOf="@id/scoreTag"/>
+    </RelativeLayout>
+
+</RelativeLayout>

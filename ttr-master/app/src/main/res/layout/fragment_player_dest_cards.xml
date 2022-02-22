@@ -1,0 +1,24 @@
+ <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".game.fragments.TrainCardPresenter"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dest_card_recycler"
+            android:layout_width="0dp"
+            android:layout_weight="72"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/player_switch_cards_button"
+            android:layout_width="0dp"
+            android:layout_weight="28"
+            android:layout_height="match_parent"
+            android:text="@string/dest_cards" />
+
+    </LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="player_colors">
+        <item>@color/neon_yellow</item>
+        <item>@color/neon_pink</item>
+        <item>@color/neon_green</item>
+        <item>@color/neon_orange</item>
+        <item>@color/neon_grey</item>
+    </array>
+
+    <string-array name="player_num_array">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+</resources>

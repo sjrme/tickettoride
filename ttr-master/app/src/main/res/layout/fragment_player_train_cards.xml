@@ -1,0 +1,123 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".game.fragments.TrainCardPresenter">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:id="@+id/train_card_linear_layout">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/red"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/cards_red"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/blue"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/cards_blue"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/green"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/cards_green"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/yellow"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/cards_yellow"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/black"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/cards_black"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/purple"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/cards_purple"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/orange"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/cards_orange"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/white"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/cards_white"/>
+
+
+
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/wild"
+            android:text="0"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:id="@+id/cards_wild"/>
+
+        <Button
+            android:id="@+id/player_switch_cards_button"
+            android:layout_width="0dp"
+            android:layout_weight="28"
+            android:textSize="13sp"
+            android:layout_height="match_parent"
+            android:text="@string/train_card"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

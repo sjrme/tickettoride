@@ -1,0 +1,74 @@
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'application'
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':common')
+    compile files('libs/gson-2.6.2.jar')
+    compile files('libs/junit-4.12.jar')
+    compile 'org.hamcrest:hamcrest-core:1.3'
+    compile 'org.xerial:sqlite-jdbc:3.19.3'
+    compile 'javax.websocket:javax.websocket-api:1.1'
+    compile 'org.eclipse.jetty.aggregate:jetty-all:9.4.6.v20170531'
+    compile 'org.slf4j:slf4j-simple:1.8.0-alpha2'
+    compile 'com.squareup.okio:okio:1.13.0'
+    compile 'org.apache.commons:commons-io:1.3.2'
+}
+//mainClassName = "database.FileDatabase.FileDatabase"
+mainClassName = 'servercommunicator.ServerCommunicator'
+
+/*jar {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+/*task deleteJar(type: Delete) {
+    delete 'libs/logmanagementlib.jar'
+}
+
+task createJar(type: Copy) {
+    from('build/intermediates/bundles/release/')
+    into('libs/jars/')
+    include('classes.jar')
+    rename('classes.jar', 'logmanagementlib.jar')
+}
+
+createJar.dependsOn(deleteJar, build)*/
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
+    }
+}
+
+
+jar {
+    manifest {
+        attributes 'Class-Path': '/libs/a.jar'
+    }
+}
+
+task testJar(type: Jar) {
+    manifest {
+        attributes 'Description': 'Stand alone JAR for FYSH TTR server.'
+    }
+}
+
+shadowJar {
+    manifest {
+        inheritFrom project.tasks.testJar.manifest
+    }
+}
+
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

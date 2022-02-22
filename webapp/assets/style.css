@@ -1,0 +1,58 @@
+
+
+
+.container {
+  margin: auto auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #dcf7f7;
+}
+
+#mainimg {
+    border-radius: 25px;
+    animation-duration: 1s;
+    animation-name: slide;
+}
+
+#query-state {
+    padding-top: 15px;
+    padding-bottom:15px;
+}
+
+button:hover {
+    color: blue;
+}
+
+
+.title {
+  font-family:
+    'Tahoma',
+    sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #100e38;
+  letter-spacing: 1px;
+}
+
+.content {
+  padding-top: 15px;
+}
+
+.list {
+    padding-top: 15px;
+}
+
+@keyframes slide {
+  from {
+    margin-left: 100%;
+
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}

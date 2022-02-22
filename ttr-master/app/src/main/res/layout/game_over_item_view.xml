@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="7">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:id="@+id/username"
+        android:text="Username"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Routes Claimed"
+        android:id="@+id/routes_claime"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Routes Claimed Points"
+        android:id="@+id/routes_claimed_points"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Destinations Reached Points"
+        android:id="@+id/destinations_reached_points"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Destinations Reached Points Lost"
+        android:id="@+id/destinations_reached_points_lost"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Longest Route Points"
+        android:id="@+id/longest_route_points"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Total Points"
+        android:id="@+id/total_points"/>
+</LinearLayout>

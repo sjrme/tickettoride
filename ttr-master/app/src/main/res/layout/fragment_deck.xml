@@ -1,0 +1,134 @@
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context="fysh340.ticket_to_ride.game.fragments.DeckPresenter"
+    android:id="@+id/faceUpCards"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="120">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+
+    <ImageView
+        android:id="@+id/first"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="16"
+        android:src="@drawable/tickettoride"
+        android:scaleType="fitXY"
+        android:textAlignment="center"
+        android:textSize="12sp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
+    <ImageView
+        android:id="@+id/second"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="16"
+        android:src="@drawable/tickettoride"
+        android:scaleType="fitXY"
+        android:textAlignment="center"
+        android:textSize="12sp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
+    <ImageView
+        android:id="@+id/third"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="16"
+        android:src="@drawable/tickettoride"
+        android:scaleType="fitXY"
+        android:textAlignment="center"
+        android:textSize="12sp"/>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
+    <ImageView
+        android:id="@+id/fourth"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="16"
+        android:src="@drawable/tickettoride"
+        android:scaleType="fitXY"
+        android:textAlignment="center"
+        android:textSize="12sp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="3dp"/>
+
+    <ImageView
+        android:id="@+id/fifth"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="16"
+        android:src="@drawable/tickettoride"
+        android:scaleType="fitXY"
+        android:textAlignment="center"
+        android:textSize="12sp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="26">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/trainDeck"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/traincardback"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/destinationDeck"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/destcardback"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textSize="20sp"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/selectedRoute"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="14"
+        android:gravity="center"
+        android:background="@drawable/customborder"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textColor="@color/gold"/>
+
+</LinearLayout>
+

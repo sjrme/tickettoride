@@ -1,0 +1,36 @@
+[
+  {
+    "featureType": "all",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },
+  {
+    "featureType": "all",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#CFD8DC" }
+    ]
+  },
+  {
+    "featureType": "administrative.locality",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      { "color": "#90A4AE" }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#B3E5FC" }
+    ]
+  },
+  {
+    "featureType": "road",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  }
+]

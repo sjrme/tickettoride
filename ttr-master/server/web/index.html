@@ -1,0 +1,296 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title> Ticket to Ride app server </title>
+        <meta gameName="description" content="">
+        <meta gameName="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+        <!-- Place favicon.ico in the root directory -->
+
+<!--        <link rel="stylesheet" href="css/normalize.css">    -->
+        <link rel="stylesheet" href="css/main.css">
+   <!--     <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
+
+        <script type="text/javascript">
+
+          var ws = new WebSocket("ws://localhost:8080/ws");
+
+          ws.onopen = function() {
+              document.getElementById("response").textContent = ("WebSocket is connected!")
+          };
+
+          ws.onmessage = function (evt) {
+              //alert("Message: " + evt.data);
+              var myResponseText = document.getElementById("response").textContent;
+              myResponseText = myResponseText + formatJson(evt.data);
+
+              document.getElementById("response").textContent = myResponseText;
+
+              var scroll = document.getElementById("response");
+              scroll.scrollTop = scroll.scrollHeight;
+              //var x = document.createElement("span");
+              //document.getElementById("span").innerHTML = formatJson(evt)
+              //document.getElementById("response").textContent = formatJson(evt)
+          };
+
+          ws.onclose = function() {
+              alert("Disconnected from server");
+          };
+
+          ws.onerror = function(err) {
+              alert("Fatal Error: " + err);
+          };
+
+          var myUsername = "";
+          var myGameName = "";
+
+            function submit()
+            {
+                var handle = document.getElementById("handleBox").value;
+                var requestBody = document.getElementById("requestBox").value;
+                var token = document.getElementById("authToken").value;
+
+                var myJSON = JSON.parse(requestBody);
+                myUsername = myJSON.username;
+                if (myJSON.hasOwnProperty('gameName')){
+                  myGameName = myJSON.gameName;
+                }
+                var method = "post";
+                /*
+                if(handle.includes("person") || handle.includes("event"))
+                {
+                  method = "get";
+                }
+                */
+                ws.send(requestBody);
+                return false;
+
+
+            }
+
+            function send(path, params, method, token)
+            {
+                var obj = new XMLHttpRequest();
+                obj.onreadystatechange = function()
+                {
+                    var response = obj.responseText;
+                    var responseJson = JSON.parse(response);
+
+                    if (responseJson.authToken) {
+                        document.getElementById("authToken").value = responseJson.authToken;
+                    }
+                    document.getElementById("response").value = formatJson(response);
+                };
+                obj.open(method,path,false);
+                obj.setRequestHeader("Content-Type", "application/json");
+                obj.setRequestHeader("Authorization", token);
+                obj.send(params);
+
+            }
+
+            function formatJson(inputText)
+            {
+                var temp = "";
+                var indent = 0;
+                for(var i in inputText)
+                {
+                    var char = inputText[i];
+                    if(char != null)
+                    {
+                        if(char === ']' || char === '}')
+                        {
+                            temp += "\n";
+                            indent--;
+                            for(var j = 0; j < indent; j++)
+                            {
+                                temp += '\t';
+                            }
+
+                        }
+
+                        temp += char;
+
+                        if (char === ',')
+                        {
+                            temp += "\n";
+
+                            for(j = 0; j < indent; j++)
+                            {
+                                temp += '\t';
+                            }
+
+                        }
+                        if(char === '{' || char === '[')
+                        {
+                            temp += "\n";
+                            indent++;
+                            for(j = 0; j < indent; j++)
+                            {
+                                temp += '\t';
+                            }
+                        }
+                    }
+                }
+
+                return temp;
+            }
+
+
+            function clear()
+            {
+                document.getElementById("requestBox").value = formatJson("{\"type\":\"cleardb\",\"username\":\"" + myUsername + "\"}");
+            }
+            function login()
+            {
+                document.getElementById("requestBox").value = formatJson("{\"type\":\"login\",\"username\":\"" + myUsername + "\",\"password\":\"password\"}");
+            }
+            function register()
+            {
+                document.getElementById("requestBox").value = formatJson("{\"type\":\"register\",\"username\":\"" + myUsername + "\",\"password\":\"password\"}");
+            }
+            function poll()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"pollgames\",\"username\":\"" + myUsername + "\"}");
+            }
+            function creategame()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"creategame\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\",\"numPlayers\":\"0\"}");
+            }
+            function joingame()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"joingame\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\"}");
+            }
+            function rejoingame()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"rejoingame\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\"}");
+            }
+            function leavegame()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"leavegame\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\"}");
+            }
+            function startgame()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"startgame\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\"}");
+            }
+            function drawtraindeck()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"drawtraincarddeck\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\"}");
+            }
+            function drawtrainface()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"drawtraincardfaceup\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\",\"index\":\"0\"}");
+            }
+            function drawdestcard()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"drawthreedestcards\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\"}");
+            }
+            function returndestcard()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"returndestcards\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\",\"destCard\":30\t}");
+            }
+            function claimroute()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"claimroute\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\",\"routeID\":\"0\",\"trainCards\":[\t]}");
+            }
+            function sendchat()
+            {
+              document.getElementById("requestBox").value = formatJson("{\"type\":\"chatmessage\",\"username\":\"" + myUsername + "\",\"gameName\":\"" + myGameName + "\",\"message\":\"message\"}");
+            }
+        </script>
+    </head>
+    <body>
+        <div style="text-align:center;">
+            <h1>
+                Ticket to Ride server test page, shamelessly modified from CS240.
+            </h1>
+            <h2>Built to power BYU CS 340 Ticket to Ride Application for Android</h2>
+        </div>
+        <div>
+
+              <div style="border: 2px solid black; margin:5px;">
+                  <h1 style="padding-left:1cm; text-decoration: underline;">Command List</h1>
+                <ul>
+                  <li>
+                    <a href="javascript:clear()" >Clear Database</a> Delete all users from database.
+                  </li>
+                  <li>
+                    <a href="javascript:login()" >Login</a> Login user with given data.
+                    </li>
+                  <li>
+                    <a href="javascript:register()" >Register</a> Register user with given data.
+                  </li>
+               </ul>
+               <p></p>
+               <ul>
+                  <li>
+                    <a href="javascript:poll()" >Poll</a> Test polling.
+                  </li>
+                  <li>
+                    <a href="javascript:creategame()" >Create Game</a> Create a new Game.
+                  </li>
+                  <li>
+                    <a href="javascript:joingame()" >Join Game</a> Join a currently existing game.
+                  </li>
+                  <li>
+                    <a href="javascript:rejoingame()" >Rejoin Game</a> Rejoing a game you were previously in.
+                  </li>
+                  <li>
+                    <a href="javascript:leavegame()" >Leave Game</a> Remove the user from game.
+                  </li>
+                  <li>
+                    <a href="javascript:startgame()" >Start Game</a> Start the game.
+                  </li>
+               </ul>
+               <p></p>
+               <ul>
+                  <li>
+                    <a href="javascript:drawtraindeck()" >Draw Train Card (Deck)</a> Draw a Train Card from the Deck.
+                  </li>
+                  <li>
+                    <a href="javascript:drawtrainface()" >Draw Train Card (Face up)</a> Draw Train Card from face up (by card index location).
+                  </li>
+                  <li>
+                    <a href="javascript:drawdestcard()" >Draw Destination Card</a> Draw a Destination Card from the Deck.
+                  </li>
+                  <li>
+                    <a href="javascript:returndestcard()" >Return Destination Card(s)</a> Return a Destination Card (by cardID).
+                  </li>
+                  <li>
+                    <a href="javascript:claimroute()" >Claim Route</a> Claim a route.
+                  </li>
+                  <li>
+                    <a href="javascript:sendchat()" >Send Chat Message</a> Send a message to all players.
+                  </li>
+              </ul>
+            </div>
+        </div>
+
+
+        <div class="w3-row forumDiv">
+            <div class="w3-col m4">
+              Handle:<input type="text" id="handleBox" gameName="handleBox" style="width: 400px">
+            </div>
+            <div class="w3-col m5">
+              Authorization token: <input type="text" id="authToken" gameName="authToken" style="width: 400px;">
+              <input type="button" gameName="Submit" value="Submit" onclick="submit()">
+            </div>
+        </div>
+        <div class="w3-row" style="margin:10px;">
+          <p class="w3-col w3-container center" style="width:3%"/>
+          <div class="w3-col w3-container bottom" style="width:45%">
+            Request Body: <textarea type="text" id="requestBox" gameName="requestBox" class="requestBody"></textarea>
+          </div>
+          <p class="w3-col w3-container center" style="width:3%"/>
+          <div class="w3-col w3-container bottom" style="width:45%">
+            Response From the server: <textarea type="text" id="response" class="responseBody" readonly></textarea>
+          <div>
+          <p class="w3-col w3-container center" style="width:3%"/>
+        </div>
+    </body>
+</html>

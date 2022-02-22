@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@drawable/customborder">
+
+    <LinearLayout
+        android:id="@+id/my_child_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/player"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="65"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:scrollHorizontally="true"/>
+
+        <TextView
+            android:id="@+id/item_players"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="35"
+            android:textSize="16sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

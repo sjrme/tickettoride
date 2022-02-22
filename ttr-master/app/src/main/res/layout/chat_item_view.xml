@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@drawable/customborder">
+
+    <LinearLayout
+        android:id="@+id/my_child_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/string_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            android:gravity="center" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

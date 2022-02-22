@@ -1,0 +1,48 @@
+<resources>
+    <string name="default_string"> </string>
+    <string name="app_name">Ticket To Ride</string>
+    <string name="game_list_title">Ticket To Ride Game List</string>
+    <string name="ip">IP Address:</string>
+    <string name="username">Username:</string>
+    <string name="password">Password:</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="start_own_game">Start your own game:</string>
+    <string name="enter_game_name">Enter the gameName of the game you would like to create:</string>
+    <string name="number_players">Choose the Number of Players:</string>
+    <string name="create_game">Create Game</string>
+    <string name="join_unstarted">Join an unstarted game:</string>
+    <string name="join_started">Join a started game:</string>
+    <string name="current_games">Games in Progress:</string>
+    <string name="players">Players</string>
+    <string name="dest_cards">Dest Cards</string>
+    <string name="train_card">Train Cards</string>
+    <string name="select_your_dest_cards">Select Destination Cards to keep:</string>
+    <string name="dest_card_sample_city1">Sault St Marie</string>
+    <string name="dest_card_sample_city2">Oklahoma City</string>
+    <string name="sample_number">88</string>
+    <string name="sample_name">Username</string>
+    <string name="spaced_hyphen">\u0020-\u0020</string>
+    <string name="confirm">Confirm</string>
+    <string name="score">Score:\u0020</string>
+
+    <string name="train_image_description">Image for a train</string>
+    <string name="route_image_description">Image for a route</string>
+    <string name="train_card_image_description">Image for a train card</string>
+    <string name="dest_card_image_description">Image for a dest card</string>
+
+    <string-array name="mcolors">
+        <item>red</item>
+        <item>blue</item>
+        <item>green</item>
+        <item>yellow</item>
+        <item>black</item>
+        <item>purple</item>
+        <item>orange</item>
+        <item>white</item>
+        <item>wild</item>
+    </string-array>
+    
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
